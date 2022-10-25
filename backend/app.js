@@ -2,13 +2,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
+require('dotenv').config();
 
 const userRoutes = require('./routes/user');
 const saucesRoutes = require('./routes/sauces');
 
 const app = express();
 
-mongoose.connect('mongodb+srv://abdou:abdou19782016@cluster0.2vv98wm.mongodb.net/?retryWrites=true&w=majority',
+mongoose.connect(process.env.SECRET_SRV,
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
